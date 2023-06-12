@@ -1,6 +1,7 @@
 import {View, Text, ScrollView, StyleSheet} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import firestore from '@react-native-firebase/firestore';
+import themestyle from '../style/theme_peerapat';
 
 const UserScreen = () => {
   const [userData, setUserData] = useState([]);
@@ -27,9 +28,10 @@ const UserScreen = () => {
   return (
     <ScrollView>
       {userData.map(user => (
-        <View  style={styles.container}>
-          <Text style={styles.title}>
-            Username: {user.name} <Text>Age: {user.age}</Text>
+        <View style={styles.container}>
+          <Text style={themestyle.typography.Subtitle1}>
+            ✎ name: {user.name} <Text>Age:</Text>{' '}
+            <Text style={{color: themestyle.colors.info.main}}>{user.age}</Text>
           </Text>
         </View>
       ))}
@@ -46,11 +48,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     paddingTop: 30,
-  },
-  title: {
-    fontSize: 18,
-    fontWeight: '500',
-    color: '#000',
-    marginBottom: 30,
+    paddingBottom:20,
   },
 });

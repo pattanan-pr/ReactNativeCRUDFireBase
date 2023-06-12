@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {View, Text, StyleSheet, ScrollView} from 'react-native';
 import {ThemeProvider, Button, Input, Image} from 'react-native-elements';
 import firestore from '@react-native-firebase/firestore';
+import themestyle from '../style/theme_peerapat';
 
 const AddUserScreen = ({navigation}) => {
   const [name, setName] = useState('');
@@ -62,11 +63,12 @@ const AddUserScreen = ({navigation}) => {
 
         <Button
           title="Add user"
-          buttonStyle={{backgroundColor: 'green'}}
+          buttonStyle={themestyle.typography.ButtonM}
           onPress={addNewUser}
         />
         <Button
           title="Go to user List"
+          buttonStyle={themestyle.typography.ButtonS}
           containerStyle={{marginTop: 15}}
           onPress={() => navigation.navigate('UserScreen')}
         />
