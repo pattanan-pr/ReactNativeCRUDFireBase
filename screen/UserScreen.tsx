@@ -27,9 +27,9 @@ const UserScreen = () => {
   return (
     <ScrollView>
       {userData.map(user => (
-        <View key={user.id} style={styles.container}>
+        <View  style={styles.container}>
           <Text style={styles.title}>
-            Name: {user.name} <Text>Age: {user.age}</Text>
+            Username: {user.name} <Text>Age: {user.age}</Text>
           </Text>
         </View>
       ))}

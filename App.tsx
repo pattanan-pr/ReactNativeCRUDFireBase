@@ -22,7 +22,6 @@ const MyStack = () => {
       }}>
       <Stack.Screen name="Add User" component={AddUserScreen} />
       <Stack.Screen name="UserScreen" component={UserScreen} />
-      <Stack.Screen name="UserDetail" component={UserDetailScreen} />
     </Stack.Navigator>
   );
 };
