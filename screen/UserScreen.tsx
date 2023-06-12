@@ -1,4 +1,4 @@
-import {View, Text, ScrollView} from 'react-native';
+import {View, Text, ScrollView, StyleSheet} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import firestore from '@react-native-firebase/firestore';
 
@@ -25,16 +25,32 @@ const UserScreen = () => {
   fetchData();
 
   return (
- <ScrollView>
+    <ScrollView>
       {userData.map(user => (
-        <View key={user.id}>
-          <Text>Name: {user.name}</Text>
-          <Text>Age: {user.age}</Text>
+        <View key={user.id} style={styles.container}>
+          <Text style={styles.title}>
+            Name: {user.name} <Text>Age: {user.age}</Text>
+          </Text>
         </View>
       ))}
     </ScrollView>
   );
 };
 
-
 export default UserScreen;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingTop: 30,
+  },
+  title: {
+    fontSize: 18,
+    fontWeight: '500',
+    color: '#000',
+    marginBottom: 30,
+  },
+});
