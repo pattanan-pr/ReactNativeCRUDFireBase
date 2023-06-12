@@ -6,7 +6,15 @@ const UserDetailScreen = () => {
   return (
     <ThemeProvider theme={theme}>
       <ScrollView style={styles.Container}>
-        <Text>dd</Text>
+        <Input placeholder={'Name'} />
+        <Input placeholder={'Email'} />
+        <Input placeholder={'Mobile'} />
+        <Button title={'update'} />
+        <Button
+          title="Delete"
+          buttonStyle={{backgroundColor: 'red'}}
+          containerStyle={{marginTop: 15}}
+        />
       </ScrollView>
     </ThemeProvider>
   );
