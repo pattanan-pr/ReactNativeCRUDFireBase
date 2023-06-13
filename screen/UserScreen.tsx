@@ -31,7 +31,7 @@ const UserScreen = () => {
         <View style={styles.container}>
           <Text style={themestyle.typography.Subtitle1}>
             ✎ name: {user.name} <Text>Age:</Text>{' '}
-            <Text style={{color: themestyle.colors.info.main}}>{user.age}</Text>
+            <Text style={[{color: themestyle.colors.info.main},themestyle.typography.Subtitle1]}>{user.age}</Text>
           </Text>
         </View>
       ))}
