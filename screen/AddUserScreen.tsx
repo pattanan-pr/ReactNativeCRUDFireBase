@@ -3,6 +3,7 @@ import {StyleSheet, ScrollView} from 'react-native';
 import {ThemeProvider, Button, Input, Image} from 'react-native-elements';
 import firestore from '@react-native-firebase/firestore';
 import themestyle from '../style/theme_peerapat';
+import { Int32 } from 'react-native/Libraries/Types/CodegenTypes';
 
 const AddUserScreen = ({navigation}) => {
   const [name, setName] = useState('');
@@ -40,7 +41,7 @@ const AddUserScreen = ({navigation}) => {
   const handleNameChange = (value: string): void => {
     setName(value);
   };
-  const handleAgeChange = (value: int): void => {
+  const handleAgeChange = (value: Int32): void => {
     setAge(value);
   };
   console.log(name, age);

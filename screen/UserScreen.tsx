@@ -28,10 +28,16 @@ const UserScreen = () => {
   return (
     <ScrollView>
       {userData.map(user => (
-        <View style={styles.container}>
+        <View key={user.id} style={styles.container}>
           <Text style={themestyle.typography.Subtitle1}>
             ✎ name: {user.name} <Text>Age:</Text>{' '}
-            <Text style={[{color: themestyle.colors.info.main},themestyle.typography.Subtitle1]}>{user.age}</Text>
+            <Text
+              style={[
+                {color: themestyle.colors.info.main},
+                themestyle.typography.Subtitle1,
+              ]}>
+              {user.age}
+            </Text>
           </Text>
         </View>
       ))}
@@ -48,6 +54,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     paddingTop: 30,
-    paddingBottom:20,
+    paddingBottom: 20,
   },
 });
