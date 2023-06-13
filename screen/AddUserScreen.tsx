@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, Text, StyleSheet, ScrollView} from 'react-native';
+import {StyleSheet, ScrollView} from 'react-native';
 import {ThemeProvider, Button, Input, Image} from 'react-native-elements';
 import firestore from '@react-native-firebase/firestore';
 import themestyle from '../style/theme_peerapat';
