@@ -5,6 +5,7 @@ import AddUserScreen from './screen/AddUserScreen';
 import UserScreen from './screen/UserScreen';
 import UserDetailScreen from './screen/UserDetailScreen';
 import Pokemon from './screen/Pokemon';
+import PokemonDetailsScreen from './screen/PokemonDetailsScreen';
 
 const Stack = createStackNavigator();
 
@@ -24,6 +25,7 @@ const MyStack = () => {
       <Stack.Screen name="Add User" component={AddUserScreen} />
       <Stack.Screen name="UserScreen" component={UserScreen} />
       <Stack.Screen name="Pokemon" component={Pokemon} />
+      <Stack.Screen name="PokemonDetails" component={PokemonDetailsScreen} />
     </Stack.Navigator>
   );
 };
