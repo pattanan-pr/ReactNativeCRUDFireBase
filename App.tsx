@@ -4,6 +4,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import AddUserScreen from './screen/AddUserScreen';
 import UserScreen from './screen/UserScreen';
 import UserDetailScreen from './screen/UserDetailScreen';
+import Pokemon from './screen/Pokemon';
 
 const Stack = createStackNavigator();
 
@@ -22,6 +23,7 @@ const MyStack = () => {
       }}>
       <Stack.Screen name="Add User" component={AddUserScreen} />
       <Stack.Screen name="UserScreen" component={UserScreen} />
+      <Stack.Screen name="Pokemon" component={Pokemon} />
     </Stack.Navigator>
   );
 };

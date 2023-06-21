@@ -16,7 +16,6 @@ const AddUserScreen = ({navigation}) => {
         age: age,
       })
       .then(() => {
-        console.log('User added!');
         setAge(0);
         setName('');
       });
@@ -28,9 +27,9 @@ const AddUserScreen = ({navigation}) => {
         .collection('react-native-crud')
         .get();
 
-      querySnapshot.forEach(doc => {
-        console.log(doc.data());
-      });
+      // querySnapshot.forEach(doc => {
+      //   console.log(doc.data());
+      // });
     } catch (error) {
       console.error('Error fetching data:', error);
     }
@@ -44,7 +43,6 @@ const AddUserScreen = ({navigation}) => {
   const handleAgeChange = (value: Int32): void => {
     setAge(value);
   };
-  console.log(name, age);
   return (
     <ThemeProvider theme={theme}>
       <ScrollView style={styles.container}>
@@ -72,6 +70,12 @@ const AddUserScreen = ({navigation}) => {
           buttonStyle={themestyle.typography.ButtonS}
           containerStyle={{marginTop: 15}}
           onPress={() => navigation.navigate('UserScreen')}
+        />
+        <Button
+          title="Pokemon"
+          buttonStyle={themestyle.typography.ButtonS}
+          containerStyle={{ marginTop: 15}}
+          onPress={() => navigation.navigate('Pokemon')}
         />
       </ScrollView>
     </ThemeProvider>
