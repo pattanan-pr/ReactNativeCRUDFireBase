@@ -1,17 +1,13 @@
-import {
-  View,
-  Text,
-  StyleSheet,
-  ScrollView,
-  SafeAreaView,
-} from 'react-native';
-import React, { useEffect, useState } from 'react';
+import {View, Text, StyleSheet, ScrollView, SafeAreaView} from 'react-native';
+import React, {useEffect, useState} from 'react';
 import Input from '../component/Input';
 import Card from '../component/Card';
 import axios from 'axios';
 
 const Pokemon = () => {
-  const [data, setData] = useState(['']);
+  const [data, setData] = useState([]);
+  const [filteredData, setFilteredData] = useState([]);
+  const [query, setQuery] = useState('');
 
   const fetchData = async () => {
     try {
@@ -22,17 +18,24 @@ const Pokemon = () => {
 
       const pokemonDataPromises = results.map(async item => {
         const pokemonResponse = await axios.get(item.url);
-        const types = pokemonResponse.data.types.map((type) => type.type.name);
+        const types = pokemonResponse.data.types.map(type => type.type.name);
+        const abilities = pokemonResponse.data.abilities
+          .map(ability => ability.ability.name)
+          .join(', ');
         return {
           name: pokemonResponse.data.name,
           sprite: pokemonResponse.data.sprites.front_default,
           id: pokemonResponse.data.id,
+          weight: pokemonResponse.data.weight,
+          height: pokemonResponse.data.height,
+          abilities: abilities,
           types: types,
         };
       });
 
       const pokemonData = await Promise.all(pokemonDataPromises);
       setData(pokemonData);
+      setFilteredData(pokemonData);
     } catch (error) {
       console.log(error);
     }
@@ -41,7 +44,18 @@ const Pokemon = () => {
   useEffect(() => {
     fetchData();
   }, []);
-  console.log(data);
+
+  const filterData = searchQuery => {
+    const filteredPokemon = data.filter(pokemon =>
+      pokemon.name.toLowerCase().includes(searchQuery.toLowerCase()),
+    );
+    setFilteredData(filteredPokemon);
+  };
+
+  const handleInputChange = text => {
+    setQuery(text);
+    filterData(text);
+  };
 
   return (
     <SafeAreaView>
@@ -49,18 +63,25 @@ const Pokemon = () => {
         <View style={styles.container}>
           <View style={styles.topper}>
             <Text style={styles.text}>POKEDEX</Text>
-            <View style={{ marginTop: 10 }}>
-              <Input textholder="Name or type" color="#ccc" />
+            <View style={{marginTop: 10}}>
+              <Input
+                textholder="Name or type"
+                color="#ccc"
+                onChangeText={handleInputChange}
+              />
             </View>
           </View>
           <View style={styles.card}>
-            {data.map((item, index) => (
+            {filteredData.map((item, index) => (
               <Card
                 key={index}
                 id={item.id}
                 name={item.name}
                 url={item.sprite}
                 element={item.types}
+                weight={item.weight}
+                height={item.height}
+                ability={item.abilities}
               />
             ))}
           </View>
@@ -71,6 +92,7 @@ const Pokemon = () => {
 };
 
 export default Pokemon;
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,

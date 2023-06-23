@@ -1,8 +1,8 @@
-import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
-import React, { useEffect, useState } from 'react';
-import { useNavigation } from '@react-navigation/native';
+import {View, Text, StyleSheet, TouchableOpacity, Image} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {useNavigation} from '@react-navigation/native';
 
-const Card = ({ id, name, url, element }) => {
+const Card = ({ id, name, url, element, weight, height, ability }) => {
   const [elementColor, setElementColor] = useState('#ccc');
   const [backgroundCard, setBackgroundCard] = useState('#66E2E4');
   const navigation = useNavigation();
@@ -50,8 +50,7 @@ const Card = ({ id, name, url, element }) => {
   }, [element]);
 
   const handleCardPress = () => {
-    // Navigate to the Pokemon page using the navigation object
-    navigation.navigate('PokemonDetails', { name, url, element});
+    navigation.navigate('PokemonDetails', { name, url, element, weight, height, ability });
   };
 
   console.log(element);
@@ -74,7 +73,7 @@ const Card = ({ id, name, url, element }) => {
               <View style={styles.textContainer}>
                 {element.map((item, index) => (
                   <View
-                    style={[styles.textview2, { backgroundColor: elementColor }]}
+                    style={[styles.textview2, {backgroundColor: elementColor}]}
                     key={index}>
                     <Text style={styles.text3}>{item}</Text>
                   </View>
@@ -82,7 +81,7 @@ const Card = ({ id, name, url, element }) => {
               </View>
             ) : null}
           </View>
-          <View style={{ paddingRight: 10 }}>
+          <View style={{paddingRight: 10}}>
             <Image
               style={styles.logo}
               source={{
