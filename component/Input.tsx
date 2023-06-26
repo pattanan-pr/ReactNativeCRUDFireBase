@@ -1,5 +1,5 @@
-import {View, TextInput, KeyboardTypeOptions, Platform} from 'react-native';
-import React, {useState} from 'react';
+import {View, TextInput, Platform} from 'react-native';
+import React from 'react';
 
 interface InputType {
   textholder: string;

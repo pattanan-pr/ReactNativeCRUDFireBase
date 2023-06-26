@@ -66,22 +66,6 @@ const PokemonDetailsScreen = ({route}) => {
           'https://cdn.discordapp.com/attachments/761848868034969640/1121468603108167821/Professor_Oaks_Laboratory_-_Bulbapedia_the_community-driven_Pokemon_encyclopedia.png',
         );
       }
-      // } else if (element[0] === 'fairy') {
-      //   setElementColor('#FC74DB');
-      //   setBackgroundCard('#EE92D8');
-      // } else if (element[0] === 'fighting') {
-      //   setElementColor('#2F398B');
-      //   setBackgroundCard('#4668F3');
-      // } else if (element[0] === 'psychic') {
-      //   setElementColor('#8B732F');
-      //   setBackgroundCard('#B59847');
-      // } else if (element[0] === 'rock') {
-      //   setElementColor('#5F5F5F');
-      //   setBackgroundCard('#818181');
-      // } else if (element[0] === 'ghost') {
-      //   setElementColor('#2B1F45');
-      //   setBackgroundCard('#4A3B6A');
-      // }
     }
   }, [element]);
 
@@ -104,20 +88,7 @@ const PokemonDetailsScreen = ({route}) => {
             </Text>
           </View>
 
-          <View
-            style={{
-              marginTop: 20,
-              // justifyContent: 'center',
-              // alignItems: 'center',
-              // flexDirection: 'row',
-              borderRadius: 8,
-              borderWidth: 2,
-              paddingHorizontal: 18,
-              backgroundColor: '#F3F3F3',
-              marginHorizontal: 20,
-              paddingTop: 14,
-              paddingBottom: 14,
-            }}>
+          <View style={styles.Textcontainer}>
             <Text style={styles.text2}>Weight: {weight} </Text>
             <Text style={styles.text2}>Height: {height} </Text>
             <Text style={styles.text2}>
@@ -148,6 +119,16 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
+  Textcontainer: {
+    marginTop: 20,
+    borderRadius: 8,
+    borderWidth: 2,
+    paddingHorizontal: 18,
+    backgroundColor: '#F3F3F3',
+    marginHorizontal: 20,
+    paddingTop: 14,
+    paddingBottom: 14,
+  },
   image: {
     flex: 1,
     justifyContent: 'center',
@@ -159,7 +140,6 @@ const styles = StyleSheet.create({
   text2: {
     fontSize: 14,
     fontWeight: '500',
-    // color: 'white',
   },
   logo: {
     width: 400,
